@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: Ping Magic Web
         run: |
-          # Replace the URL below with your actual Render UI URL once deployed
-          curl -sL https://magic-web.onrender.com || echo "Web ping failed, instance might be sleeping"
+          # Pinging the live Magic Studio instance on Render
+          curl -sL https://magic-website-4gi7.onrender.com || echo "Web ping failed, instance might be sleeping"
 
       - name: Ping Magic Backend
         run: |
-          # Replace the URL below with your actual Render API URL once deployed
-          curl -sL https://magic-backend.onrender.com/api/magic/ || echo "Backend ping failed, instance might be sleeping"
+          # Pinging the API layer to ensure the full orchestration stays active
+          curl -sL https://magic-website-4gi7.onrender.com/api/magic/ || echo "Backend ping failed, instance might be sleeping"
