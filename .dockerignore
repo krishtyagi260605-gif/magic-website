@@ -6,8 +6,6 @@ build
 .git
 .gitignore
 *.md
-pnpm-lock.yaml
-pnpm-workspace.yaml
 docker-compose.yml
 Dockerfile
 nginx.conf
