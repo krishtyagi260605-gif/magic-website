@@ -24,15 +24,18 @@ RUN pnpm --filter magic-web build
 # Stage 2: Production Runner
 FROM node:20-slim AS runner
 WORKDIR /app
+
 ENV NODE_ENV=production
+ENV HOSTNAME="0.0.0.0"
+ENV PORT=3000
 
 # Copy necessary standalone assets from builder
-# Next.js standalone mode bundles everything into .next/standalone
 COPY --from=builder /app/apps/web/public ./apps/web/public
 COPY --from=builder /app/apps/web/.next/standalone ./
 COPY --from=builder /app/apps/web/.next/static ./apps/web/.next/static
 
 EXPOSE 3000
 
-# In standalone mode, Next.js generates a server.js that handles everything
+# Start the standalone server
+# In Next.js monorepo standalone, the entry point is at apps/web/server.js
 CMD ["node", "apps/web/server.js"]
