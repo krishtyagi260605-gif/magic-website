@@ -1,34 +1,33 @@
-# This root Dockerfile is for Render Web Services that look for a Dockerfile in the project root.
-# It builds the Magic Studio Frontend (Next.js).
+# Monolithic Root Dockerfile for Render Web Services
+# Optimized for Next.js in a monorepo structure.
 
-# Stage 1: Build
 FROM node:20 AS builder
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
+WORKDIR /app
+
+# 1. Install pnpm globally
 RUN npm install -g pnpm@10.8.1
 
-WORKDIR /app
-
-# Copy pnpm workspace files
-COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
+# 2. Copy workspace config for dependency resolution
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/web/package.json ./apps/web/
 
-# Install dependencies
+# 3. Install ALL dependencies for the workspace
+# This ensures that any cross-package links are correctly established.
 RUN pnpm install --frozen-lockfile
 
-# Copy the rest of the frontend source
-COPY apps/web ./apps/web
+# 4. Copy the entire source code for the build
+COPY . .
 
-# Build the application
+# 5. Build the frontend
 RUN pnpm --filter magic-web build
 
-# Stage 2: Serve
+# Stage 2: Production Runner
 FROM node:20-slim AS runner
 WORKDIR /app
-
 ENV NODE_ENV=production
 
-# Copy built assets from builder
+# Copy built assets and necessary workspace folders
+# We copy node_modules and .next to the same paths as in the builder
 COPY --from=builder /app/apps/web/.next ./apps/web/.next
 COPY --from=builder /app/apps/web/public ./apps/web/public
 COPY --from=builder /app/apps/web/package.json ./apps/web/package.json
@@ -36,5 +35,5 @@ COPY --from=builder /app/node_modules ./node_modules
 
 EXPOSE 3000
 
-# Next.js usually looks for node_modules in the same dir as .next
+# Start Next.js from the web app's directory
 CMD ["sh", "-c", "cd apps/web && npm start"]
