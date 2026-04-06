@@ -26,14 +26,13 @@ FROM node:20-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
-# Copy built assets and necessary workspace folders
-# We copy node_modules and .next to the same paths as in the builder
-COPY --from=builder /app/apps/web/.next ./apps/web/.next
+# Copy necessary standalone assets from builder
+# Next.js standalone mode bundles everything into .next/standalone
 COPY --from=builder /app/apps/web/public ./apps/web/public
-COPY --from=builder /app/apps/web/package.json ./apps/web/package.json
-COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/apps/web/.next/standalone ./
+COPY --from=builder /app/apps/web/.next/static ./apps/web/.next/static
 
 EXPOSE 3000
 
-# Start Next.js from the web app's directory
-CMD ["sh", "-c", "cd apps/web && npm start"]
+# In standalone mode, Next.js generates a server.js that handles everything
+CMD ["node", "apps/web/server.js"]
