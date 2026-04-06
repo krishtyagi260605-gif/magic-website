@@ -1,8 +1,8 @@
 # Stage 1: Build
-FROM node:20-slim AS builder
+FROM node:20 AS builder
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+RUN npm install -g pnpm@10.8.1
 
 WORKDIR /app
 
