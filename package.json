@@ -1,0 +1,11 @@
+{
+  "name": "magic-monorepo",
+  "private": true,
+  "packageManager": "pnpm@10.8.1",
+  "scripts": {
+    "dev:web": "pnpm --filter magic-web dev",
+    "build:web": "pnpm --filter magic-web build",
+    "lint:web": "pnpm --filter magic-web lint"
+  }
+}
+

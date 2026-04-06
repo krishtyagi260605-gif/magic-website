@@ -1,0 +1,20 @@
+name: Keep Magic Alive
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Every 5 minutes
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Magic Web
+        run: |
+          # Replace the URL below with your actual Render UI URL once deployed
+          curl -sL https://magic-web.onrender.com || echo "Web ping failed, instance might be sleeping"
+
+      - name: Ping Magic Backend
+        run: |
+          # Replace the URL below with your actual Render API URL once deployed
+          curl -sL https://magic-backend.onrender.com/api/magic/ || echo "Backend ping failed, instance might be sleeping"

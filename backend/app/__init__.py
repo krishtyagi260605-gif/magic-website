@@ -1,0 +1,2 @@
+"""Magic backend application package."""
+

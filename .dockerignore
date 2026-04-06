@@ -1,0 +1,14 @@
+node_modules
+.next
+.venv
+dist
+build
+.git
+.gitignore
+*.md
+pnpm-lock.yaml
+pnpm-workspace.yaml
+docker-compose.yml
+Dockerfile
+nginx.conf
+.DS_Store
