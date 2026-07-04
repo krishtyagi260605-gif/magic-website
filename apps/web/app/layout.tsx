@@ -1,17 +1,6 @@
 import type { Metadata } from "next";
-import { Lexend, Orbitron } from "next/font/google";
 
 import "./globals.css";
-
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  variable: "--font-display",
-});
-
-const lexend = Lexend({
-  subsets: ["latin"],
-  variable: "--font-body",
-});
 
 export const metadata: Metadata = {
   title: "Magic | Agentic AI, Full-Stack Systems, and Automation",
@@ -30,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body 
-        className={`${orbitron.variable} ${lexend.variable} bg-[var(--background)] antialiased`}
+        className="bg-[var(--background)] antialiased"
         suppressHydrationWarning
       >
         {/* Cinematic Grain Overlay */}
@@ -43,4 +32,3 @@ export default function RootLayout({
     </html>
   );
 }
-

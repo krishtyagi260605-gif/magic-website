@@ -34,10 +34,12 @@ export function AboutOwner() {
               
               {/* Core shape */}
               <div className="section-shell absolute inset-10 flex items-center justify-center rounded-3xl bg-gradient-to-br from-[var(--background-elevated)] to-[var(--background)] shadow-2xl overflow-hidden group-hover:scale-105 transition-transform duration-500">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--gold-soft),transparent_70%)]" />
-                <span className="font-[family-name:var(--font-display)] text-5xl text-[var(--gold)] drop-shadow-[0_0_15px_rgba(231,191,97,0.5)]">
-                  KT
-                </span>
+                <img
+                  src="/krish.jpg"
+                  alt="Krish Tyagi"
+                  className="h-full w-full object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                 
                 {/* Micro-floating particles in the core */}
                 {[...Array(5)].map((_, i) => (
@@ -52,7 +54,7 @@ export function AboutOwner() {
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
-                    className="absolute h-1 w-1 rounded-full bg-white opacity-40"
+                    className="absolute h-1 w-1 rounded-full bg-white opacity-40 pointer-events-none"
                     style={{
                       top: `${20 + i * 15}%`,
                       left: `${30 + (i % 3) * 20}%`,

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --font-display: "Orbitron", "Eurostile", "Bank Gothic", "Arial Narrow", sans-serif;
+  --font-body: "Lexend", "Avenir Next", "Helvetica Neue", sans-serif;
   --background: #050816;
   --background-elevated: rgba(10, 16, 34, 0.72);
   --foreground: #eef3ff;

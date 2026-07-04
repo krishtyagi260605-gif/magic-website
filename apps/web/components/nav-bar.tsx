@@ -8,6 +8,7 @@ import { MagicLogo } from "@/components/magic-logo";
 
 const navLinks = [
   { name: "The Hub", href: "/" },
+  { name: "Projects", href: "/#portfolio" },
   { name: "The Architect", href: "/#architect" },
   { name: "Our Ecosystem", href: "/#ecosystem" },
   { name: "Architecture", href: "/architecture" },

@@ -48,12 +48,23 @@ export function EcosystemHub() {
               className="spotlight-card section-shell group flex flex-col justify-between rounded-[32px] p-8 hover:bg-white/[0.04] transition-all duration-500 hover:border-[var(--gold)]/30"
             >
               <div className="relative z-20">
-                 <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--gold)]/60">
-                       {item.tagline}
-                    </span>
-                    <div className="h-2 w-2 rounded-full bg-[var(--gold)] opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity" />
-                 </div>
+                  <div className="flex items-center justify-between w-full">
+                     <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--gold)]/60">
+                        {item.tagline}
+                     </span>
+                     {item.live ? (
+                       <a
+                         href={item.live}
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         className="relative z-30 flex items-center gap-1 rounded-full border border-[var(--gold)]/40 bg-[var(--gold)]/5 px-2.5 py-0.5 text-[8px] font-bold uppercase tracking-widest text-[var(--gold)] hover:bg-[var(--gold)] hover:text-black transition-all duration-300"
+                       >
+                         Live →
+                       </a>
+                     ) : (
+                       <div className="h-2 w-2 rounded-full bg-[var(--gold)] opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity" />
+                     )}
+                  </div>
                  
                  <h3 className="mt-4 text-2xl font-semibold text-white group-hover:text-[var(--gold)] transition-colors">
                     {item.title}

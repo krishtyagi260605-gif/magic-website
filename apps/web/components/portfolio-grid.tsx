@@ -28,37 +28,43 @@ export function PortfolioGrid() {
           </motion.h2>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, idx) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: idx * 0.5,
+                duration: 0.6,
+                ease: "easeOut",
+                delay: idx * 0.08,
               }}
+              viewport={{ once: true }}
             >
-              <div className="section-shell group h-full rounded-[32px] p-8 hover:border-[var(--gold)]/40 transition-colors duration-500">
+              <div className="section-shell group relative h-full rounded-[32px] p-8 hover:border-[var(--gold)]/40 transition-colors duration-500">
                 {/* Floating Glow */}
                 <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-[var(--gold-soft)] blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-700" />
-                
-                <div className="mb-8">
+
+                <div className="mb-8 flex items-center justify-between">
                   <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-wider text-[var(--gold)]">
                     {project.category}
                   </span>
+                  {project.badge && (
+                    <span className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+                      {project.badge}
+                    </span>
+                  )}
                 </div>
-                
+
                 <h3 className="text-2xl font-semibold text-white group-hover:text-[var(--gold)] transition-colors duration-300">
                   {project.title}
                 </h3>
-                
+
                 <p className="mt-4 text-sm leading-relaxed text-[var(--muted)] line-clamp-3">
                   {project.description}
                 </p>
-                
+
                 <div className="mt-8 flex flex-wrap gap-2 opacity-60 group-hover:opacity-100 transition-opacity duration-500">
                   {project.tech.map((t) => (
                     <span key={t} className="text-[10px] uppercase tracking-widest text-[#8a98b5]">
