@@ -118,15 +118,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "TilesKart",
-    category: "E-Commerce",
-    description:
-      "A complete multi-seller marketplace for tiles and ceramics. Features custom dashboards for sellers, detailed product catalogs, shopping cart, and secure checkout workflows.",
-    tech: ["Node.js", "Express", "Swagger", "JavaScript"],
-    links: { live: "https://tileskart-1.onrender.com/" },
-    badge: "Live",
-  },
-  {
     title: "Legend Detailers",
     category: "E-Commerce",
     description:
@@ -176,6 +167,15 @@ export const projects: Project[] = [
     badge: "Live",
   },
   {
+    title: "TilesKart",
+    category: "E-Commerce",
+    description:
+      "A complete multi-seller marketplace for tiles and ceramics. Features custom dashboards for sellers, detailed product catalogs, shopping cart, and secure checkout workflows.",
+    tech: ["Node.js", "Express", "Swagger", "JavaScript"],
+    links: { live: "https://tileskart-1.onrender.com/" },
+    badge: "Live",
+  },
+  {
     title: "Magic Studio Model",
     category: "AI/ML",
     description:
@@ -189,7 +189,7 @@ export const experiences = [
   {
     role: "Founder & Lead Architect",
     company: "Magic Ecosystem",
-    period: "May 2025 – Present",
+    period: "May 2026 – Present",
     details: [
       "Building and orchestrating the Magic Ecosystem of agentic AI services and SaaS solutions.",
       "Designing motion-first cinematic React frontends and robust FastAPI backends.",
