@@ -118,6 +118,15 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "TilesKart",
+    category: "E-Commerce",
+    description:
+      "A complete multi-seller marketplace for tiles and ceramics. Features custom dashboards for sellers, detailed product catalogs, shopping cart, and secure checkout workflows.",
+    tech: ["Node.js", "Express", "Swagger", "JavaScript"],
+    links: { live: "https://tileskart-1.onrender.com/" },
+    badge: "Live",
+  },
+  {
     title: "Legend Detailers",
     category: "E-Commerce",
     description:
@@ -180,7 +189,7 @@ export const experiences = [
   {
     role: "Founder & Lead Architect",
     company: "Magic Ecosystem",
-    period: "Jun 2025 – Present",
+    period: "May 2025 – Present",
     details: [
       "Building and orchestrating the Magic Ecosystem of agentic AI services and SaaS solutions.",
       "Designing motion-first cinematic React frontends and robust FastAPI backends.",
@@ -190,7 +199,7 @@ export const experiences = [
   {
     role: "Python & FastAPI Backend Trainee",
     company: "TechChefz Digital",
-    period: "Jan 2025 – May 2025",
+    period: "Jan 2026 – May 2026",
     details: [
       "Developing scalable RESTful APIs with FastAPI and LangGraph.",
       "Building AI-powered search pipelines using vector databases.",
@@ -226,6 +235,14 @@ export type EcosystemProduct = {
 };
 
 export const magicEcosystem: EcosystemProduct[] = [
+  {
+    title: "TilesKart",
+    tagline: "CERAMICS MARKETPLACE",
+    description:
+      "A complete multi-seller marketplace for tiles and ceramics. Features custom dashboards for sellers, detailed product catalogs, shopping cart, and secure checkout workflows.",
+    tech: ["Node.js", "Express", "Swagger"],
+    live: "https://tileskart-1.onrender.com/",
+  },
   {
     title: "Magic Code",
     tagline: "Autonomous Synthesis",
